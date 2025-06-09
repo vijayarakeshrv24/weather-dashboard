@@ -12,29 +12,37 @@ const FiveDayForecast = () => {
 
   return (
     <div className="neomorphic rounded-3xl p-6 animate-slide-up">
-      <h3 className="text-xl font-bold text-foreground mb-6">5-Day Forecast</h3>
-      <div className="space-y-3">
-        {forecast.map((item, index) => (
-          <div
-            key={index}
-            className="neomorphic-inset rounded-xl p-4 hover:neomorphic-hover transition-all duration-300 group cursor-pointer"
-            style={{ animationDelay: `${index * 0.1}s` }}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <item.icon className={`h-8 w-8 ${item.color} group-hover:scale-110 transition-transform duration-300`} />
-                <span className="font-medium text-foreground">{item.day}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-muted-foreground">{item.min}°</span>
-                <div className="w-16 h-2 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full"></div>
-                <span className="font-semibold text-foreground">{item.max}°</span>
-              </div>
-            </div>
+  <h3 className="text-xl font-bold text-foreground mb-6">5-Day Forecast</h3>
+  <div className="space-y-3">
+    {forecast.map((item, index) => (
+      <div
+        key={index}
+        className="neomorphic-inset rounded-xl p-4 hover:neomorphic-hover transition-all duration-300 group cursor-pointer"
+        style={{ animationDelay: `${index * 0.1}s` }}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          
+          {/* Left section (Icon + Day) */}
+          <div className="flex items-center gap-0.5 sm:flex-[2]">
+            <item.icon
+              className={`h-8 w-8 ${item.color} group-hover:scale-110 transition-transform duration-300`}
+            />
+            <span className="font-medium text-foreground">{item.day}</span>
           </div>
-        ))}
+
+          {/* Right section (Min/Bar/Max) */}
+          <div className="flex items-center gap-2 sm:justify-end sm:flex-[3]">
+            <span className="text-muted-foreground">{item.min}°</span>
+            <div className="w-20 h-2 bg-gradient-to-r from-blue-400 to-yellow-400 rounded-full flex-shrink-0"></div>
+            <span className="font-semibold text-foreground">{item.max}°</span>
+          </div>
+
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
   );
 };
 
