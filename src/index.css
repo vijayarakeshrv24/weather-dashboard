@@ -1,0 +1,180 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Weather Dashboard Design System */
+
+@layer base {
+  :root {
+    --background: 225 25% 95%;
+    --foreground: 225 15% 15%;
+
+    --card: 225 20% 92%;
+    --card-foreground: 225 15% 20%;
+
+    --primary: 200 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 225 15% 88%;
+    --secondary-foreground: 225 15% 25%;
+
+    --muted: 225 10% 85%;
+    --muted-foreground: 225 8% 45%;
+
+    --accent: 200 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 225 20% 82%;
+    --input: 225 20% 88%;
+    --ring: 200 100% 50%;
+
+    --radius: 1rem;
+
+    /* Weather-specific colors */
+    --weather-gradient-start: 200 100% 85%;
+    --weather-gradient-end: 220 70% 95%;
+    --neomorphic-light: 225 30% 98%;
+    --neomorphic-dark: 225 15% 80%;
+    --glow-green: 120 100% 50%;
+    --sunny-yellow: 45 100% 70%;
+  }
+
+  .dark {
+    --background: 225 15% 8%;
+    --foreground: 225 10% 95%;
+
+    --card: 225 15% 10%;
+    --card-foreground: 225 10% 90%;
+
+    --primary: 200 100% 60%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 225 10% 15%;
+    --secondary-foreground: 225 10% 85%;
+
+    --muted: 225 8% 18%;
+    --muted-foreground: 225 6% 65%;
+
+    --accent: 200 80% 70%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 225 15% 20%;
+    --input: 225 15% 15%;
+    --ring: 200 100% 60%;
+
+    /* Dark mode weather colors */
+    --weather-gradient-start: 225 15% 12%;
+    --weather-gradient-end: 225 20% 18%;
+    --neomorphic-light: 225 15% 20%;
+    --neomorphic-dark: 225 15% 5%;
+    --glow-green: 120 100% 60%;
+    --sunny-yellow: 45 100% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-[hsl(var(--weather-gradient-start))] to-[hsl(var(--weather-gradient-end))] text-foreground min-h-screen;
+  }
+}
+
+@layer components {
+  /* Neumorphic styles */
+  .neomorphic {
+    @apply bg-gradient-to-br from-[hsl(var(--neomorphic-light))] to-[hsl(var(--neomorphic-dark))];
+    box-shadow: 
+      8px 8px 16px hsl(var(--neomorphic-dark) / 0.3),
+      -8px -8px 16px hsl(var(--neomorphic-light) / 0.7);
+  }
+  
+  .neomorphic-inset {
+    @apply bg-gradient-to-br from-[hsl(var(--neomorphic-dark))] to-[hsl(var(--neomorphic-light))];
+    box-shadow: 
+      inset 4px 4px 8px hsl(var(--neomorphic-dark) / 0.3),
+      inset -4px -4px 8px hsl(var(--neomorphic-light) / 0.7);
+  }
+
+  .neomorphic-hover {
+    @apply transition-all duration-300;
+    box-shadow: 
+      12px 12px 24px hsl(var(--neomorphic-dark) / 0.4),
+      -12px -12px 24px hsl(var(--neomorphic-light) / 0.8);
+  }
+
+  .glow-green {
+    @apply shadow-lg;
+    box-shadow: 
+      0 0 20px hsl(var(--glow-green) / 0.3),
+      8px 8px 16px hsl(var(--neomorphic-dark) / 0.3),
+      -8px -8px 16px hsl(var(--neomorphic-light) / 0.7);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSubtle 0.4s ease-out;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceSubtle {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--glow-green) / 0.3);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--glow-green) / 0.6);
+    }
+  }
+}
