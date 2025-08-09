@@ -79,7 +79,7 @@ const HourlyForecast = () => {
   }, [city]);
 
   return (
-    <div className="neomorphic rounded-3xl p-6 animate-slide-up">
+    <div className="rounded-3xl p-6 animate-slide-up">
       <h3 className="text-xl font-bold text-foreground mb-6">
         Hourly Forecast for {city}
       </h3>

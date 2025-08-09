@@ -77,7 +77,7 @@ const getCityTime = () => {
 
 
   return (
-    <div className="neomorphic rounded-3xl p-8 animate-slide-up">
+    <div className=" rounded-3xl p-8 animate-slide-up">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-foreground mb-2">{weather.name}</h1>

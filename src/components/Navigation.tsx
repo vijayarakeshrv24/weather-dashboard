@@ -17,7 +17,7 @@ const Navigation = () => {
   <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4">
     {/* Search Input Form */}
     <form className="flex-grow min-w-[200px] relative" onSubmit={handleSubmit}>
-      <div className="neomorphic-inset rounded-2xl p-1">
+      <div className="neomorphic rounded-2xl p-1">
         <div className="flex items-center gap-3 px-4 py-3">
           <Search className="h-5 w-5 text-muted-foreground" />
           <input
@@ -32,7 +32,7 @@ const Navigation = () => {
     </form>
 
     {/* Current Location Button */}
-    <button className="neomorphic glow-green rounded-2xl px-4 py-2 font-semibold text-sm hover:neomorphic-hover animate-glow transition-all duration-300 whitespace-nowrap">
+    <button className="neomorphic  rounded-2xl px-4 py-2 font-semibold text-sm ">
       Current Location
     </button>
 
